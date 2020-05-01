@@ -5,31 +5,32 @@ import { Link } from 'react-router-dom';
 
 
 const Header = (props) => {
-  const renderContent = ()=>{
-    switch(props.auth){
+  console.log(props.auth)
+  const renderContent = () => {
+    switch (props.auth) {
       case null:
-          return;
-        case false:
-          return <li><a href="/auth/google">Login With Google</a></li>;
-        default:
-          return <li><a href="/api/logout">Logout</a></li>;
+        return;
+      case false:
+        return <div className="nav-item"><a className="nav-link" href="/auth/google">Login With Google</a></div>;
+      default:
+        return <div className="nav-item"><a className="nav-link" href="/api/logout">Logout</a></div>;
     }
   }
   return (
     <nav>
-    <div className="nav-wrapper">
-      <Link to={props.auth ? '/audit' : '/'} className="left brand-logo">
-        Audit Review Tool
+      <div className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+        <Link to={props.auth ? '/audit' : '/'} className="left navbar-brand">
+          Audit Review Tool
       </Link>
-      <ul className="right">
-        {renderContent()}
-      </ul>
-    </div>
-  </nav>
+        <div className="justify-content-end">
+          {renderContent()}
+        </div>
+      </div>
+    </nav>
   );
 };
 
-function mapStateToProps({auth}) {
+function mapStateToProps({ auth }) {
   return { auth };
 }
 export default connect(mapStateToProps)(Header);

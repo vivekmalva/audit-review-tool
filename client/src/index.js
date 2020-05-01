@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider} from 'react-redux';
-import 'materialize-css/dist/css/materialize.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 

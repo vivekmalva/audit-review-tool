@@ -5,7 +5,8 @@ const questionSchema = new Schema({
   description: String,
   isMandatory: Boolean,
   responseType: String,
-  response:[String],
+  response: String,
+  rating: Number,
 });
 
 mongoose.model('question', questionSchema);

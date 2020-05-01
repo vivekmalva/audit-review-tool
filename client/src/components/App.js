@@ -7,6 +7,7 @@ import * as actions from '../actions';
 import Header from "./Header/Header";
 import Landing from "./Landing/Landing";
 import Dashboard from "./Dashboard/Dashboard";
+import Review from "./Review/Review";
 
 class App extends Component {
   
@@ -14,6 +15,7 @@ class App extends Component {
     this.props.fetchUser();
   }
   render() {
+   
     return (
       <div>
         <BrowserRouter>
@@ -22,6 +24,7 @@ class App extends Component {
             <div className="container">
               <Route exact path="/" component={Landing} />
               <Route exact path="/audit" component={Dashboard} />
+              <Route exact path="/review" component={Review} />
             </div>
           </React.Fragment>
         </BrowserRouter>

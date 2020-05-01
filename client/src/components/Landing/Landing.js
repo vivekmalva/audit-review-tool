@@ -6,7 +6,7 @@ const Landing = () => {
       <h1>
         Audit Review Tool
       </h1>
-     A project auditing tool
+      <p>A project auditing tool</p>
     </div>
   );
 };

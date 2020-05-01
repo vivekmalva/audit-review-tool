@@ -3,21 +3,21 @@ const mongoose = require("mongoose");
 const Questions = mongoose.model("question");
 
 module.exports = (app) => {
-  app.get("/api/audit", requireLogin, async (req, res) => {
+  app.get("/api/review", requireLogin, async (req, res) => {
     const questions = await Questions.find({});
     res.send(questions);
   });
-  app.post("/api/audit", async (req, res) => {
+  app.post("/api/review", async (req, res) => {
     for (let [name, value] of Object.entries(req.body)) {
-      let data = await Questions.findOneAndUpdate(
+      await Questions.findOneAndUpdate(
         { description: name },
-        { response: value },
+        { rating: value },
         {
           new: true,
           upsert: true,
         }
       );
     }
-    res.send("Your Responses are Submitted");
+    res.send("Review Submitted");
   });
 };
